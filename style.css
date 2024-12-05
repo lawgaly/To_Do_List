@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: linear-gradient(rgba(250, 248, 245, 0.5), rgba(146, 156, 177, 0.558));
+    transition: background 0.3s ease, font-size 0.3s ease;
+    font-size: 20px; /* Default medium size */
+}
+h1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+}
+h2,fieldset {
+    display: inline-block;
+} 
+h2, p, li, input{
+    font-size: inherit; /* Inherit font size from body */
+}
+button {
+    padding: 10px 15px;
+    font-size: 16px; 
+    cursor: pointer;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+button:hover {
+    background-color: rgb(224, 215, 204);
+    transition: background-color 0.3s ease;
+}
+.light-background {
+    background-color: #fcf8f8; 
+    background-image: none; 
+}
+
+.dark-background {
+    background-color: #333;
+    color: #fff;
+    background-image: none; /* No gradient for dark background */
+}
+.row{
+    width: 100%;
+    min-height: 80vh;
+    border: 3px solid black;
+    margin: 50px auto 20px;
+    box-shadow:0 0 0 5px hwb(0 14% 85%),0 0 0 8px hsl(0, 0%, 4%);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.column {
+    float: left; 
+    padding: 10px;
+}
+.left {
+    width: 40%;
+    background-image: linear-gradient(rgba(157, 157, 170, 0.5), rgba(250, 248, 245, 0.558)),
+    url("./ToDo_image.jpg");
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center; 
+    height: 650px; 
+    font-weight: bold;
+}
+.right,.middle {
+    width: 30%;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 50%;
+    background-color: rgb(241, 238, 234); 
+} 
+.button:hover {
+    background-color: rgb(224, 215, 204);
+    transition: background-color 0.3s ease;
+}
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+#taskInput {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+#taskList li {
+    padding: 10px;
+    font-size: inherit; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#taskList li:hover {
+    background-color: #f0f0f0;
+}
+#message {
+    display: none;
+    color: blue;
+    padding-top: 0px;
+    margin-top: 0px;
+    font-size: inherit; 
+}
+/* Tablet: Mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .left {
+        display: block; /* Show the left section for tablets */
+        width: 40%; /* Adjust width for tablet layout */
+    }
+
+    .middle, .right {
+        width: 60%; /* Share the remaining space */
+    }
+
+    .row {
+        flex-direction: row; /* Keep side-by-side layout on tablets */
+    }
+}
+/* Mobile: Mode */
+@media (max-width: 768px) {
+    .left {
+        display: none; /* Hide the left section on mobile */
+    }
+    .middle, .right {
+        width: 100%; /* Use full width for remaining sections */
+        margin: 0 auto; /* Center content */
+    }
+    #addTaskButton, #highlightTasksButton, #removeCompletedButton,#taskInput {
+        width: 70%; /* Buttons adjust to screen width */
+    }
+    #taskList li {
+        font-size: 16px;  
+        padding: 8px;
+    }
+}
